@@ -1,18 +1,25 @@
 import db, { RecipeUpdateArgs } from "db"
 
+import { CreateRecipeInput } from "app/recipes/types"
+
 type UpdateRecipeInput = {
   where: RecipeUpdateArgs["where"]
-  data: RecipeUpdateArgs["data"]
+  data: CreateRecipeInput
 }
 
 export default async function updateRecipe(
-  { where, data }: UpdateRecipeInput,
+  { where, data: { title, listIds } }: UpdateRecipeInput,
   ctx: Record<any, any> = {}
 ) {
-  // Don't allow updating
-  delete data.id
-
-  const recipe = await db.recipe.update({ where, data })
+  const recipe = await db.recipe.update({
+    where,
+    data: {
+      title,
+      lists: {
+        connect: listIds.map((id) => ({ id })),
+      },
+    },
+  })
 
   return recipe
 }

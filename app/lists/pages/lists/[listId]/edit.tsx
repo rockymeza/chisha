@@ -14,7 +14,9 @@ export const EditList = () => {
       <h1>Edit List {list.id}</h1>
 
       <ListForm
-        initialValues={list}
+        initialValues={{
+          title: list.title,
+        }}
         onSubmit={async (data) => {
           try {
             const updated = await updateList({

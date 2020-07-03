@@ -3,7 +3,7 @@ import { useQuery } from "blitz"
 import { Formik, FormikHelpers, Form } from "formik"
 import Field from "app/components/Field"
 import getLists from "app/lists/queries/getLists"
-import { CreateRecipeInput } from "app/recipes/mutations/createRecipe"
+import { CreateRecipeInput } from "app/recipes/types"
 
 type Values = CreateRecipeInput
 
@@ -20,7 +20,8 @@ const RecipeForm = ({ initialValues, onSubmit }: Props) => {
       initialValues={initialValues}
       onSubmit={(values, formikHelpers) => {
         const fixedValues = {
-          ...values,
+          title: values.title || "",
+          // @ts-ignore
           listIds: values.listIds.map((id) => parseInt(id, 10)),
         }
         return onSubmit(fixedValues, formikHelpers)

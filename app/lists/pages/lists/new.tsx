@@ -1,5 +1,5 @@
 import React from "react"
-import { Head, Link, useRouter, useParam, BlitzPage } from "blitz"
+import { Head, Link, useRouter, BlitzPage } from "blitz"
 import createList from "app/lists/mutations/createList"
 import ListForm from "app/lists/components/ListForm"
 

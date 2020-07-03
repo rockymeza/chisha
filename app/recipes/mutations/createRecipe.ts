@@ -1,9 +1,7 @@
 import db from "db"
 
-export type CreateRecipeInput = {
-  title: string
-  listIds: number[]
-}
+import { CreateRecipeInput } from "app/recipes/types"
+
 export default async function createRecipe(
   { title, listIds }: CreateRecipeInput,
   ctx: Record<any, any> = {}

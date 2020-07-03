@@ -7,7 +7,10 @@ import RecipeForm from "app/recipes/components/RecipeForm"
 export const EditRecipe = () => {
   const router = useRouter()
   const recipeId = useParam("recipeId", "number")
-  const [recipe, { mutate }] = useQuery(getRecipe, { where: { id: recipeId } })
+  const [recipe, { mutate }] = useQuery(getRecipe, {
+    where: { id: recipeId },
+    include: { lists: true },
+  })
 
   return (
     <div>
@@ -15,13 +18,17 @@ export const EditRecipe = () => {
       <pre>{JSON.stringify(recipe)}</pre>
 
       <RecipeForm
-        initialValues={recipe}
-        onSubmit={async () => {
+        initialValues={{
+          title: recipe.title,
+          listIds: recipe.lists.map(({ id }) => id),
+        }}
+        onSubmit={async (data) => {
           try {
             const updated = await updateRecipe({
               where: { id: recipe.id },
-              data: { name: "MyNewName" },
+              data,
             })
+            // @ts-ignore
             mutate(updated)
             alert("Success!" + JSON.stringify(updated))
             router.push("/recipes/[recipeId]", `/recipes/${updated.id}`)
