@@ -1,0 +1,4 @@
+# Prisma Migrate lockfile v1
+
+20200703105138-add-list-and-recipes
+20200703114323-recipe-m2m-list

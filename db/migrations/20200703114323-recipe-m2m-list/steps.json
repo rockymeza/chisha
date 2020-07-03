@@ -1,0 +1,22 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateField",
+      "model": "Recipe",
+      "field": "lists",
+      "type": "List",
+      "arity": "List"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Recipe",
+      "field": "list"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Recipe",
+      "field": "listId"
+    }
+  ]
+}

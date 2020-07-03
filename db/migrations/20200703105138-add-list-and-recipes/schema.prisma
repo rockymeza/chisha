@@ -3,7 +3,7 @@
 
 datasource postgresql {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url = "***"
 }
 
 generator client {
@@ -26,5 +26,6 @@ model Recipe {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   title     String   
-  lists     List[]   
+  list      List     @relation(fields: [listId], references: [id])
+  listId    Int      
 }
