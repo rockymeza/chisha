@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Head, Link, useRouter, BlitzPage } from "blitz"
+import BaseLayout from "app/layouts/BaseLayout"
 import createRecipe from "app/recipes/mutations/createRecipe"
 import RecipeForm from "app/recipes/components/RecipeForm"
 
@@ -7,7 +8,7 @@ const NewRecipePage: BlitzPage = () => {
   const router = useRouter()
 
   return (
-    <div>
+    <BaseLayout>
       <Head>
         <title>New Recipe</title>
         <link rel="icon" href="/favicon.ico" />
@@ -38,7 +39,7 @@ const NewRecipePage: BlitzPage = () => {
           }
         </p>
       </main>
-    </div>
+    </BaseLayout>
   )
 }
 

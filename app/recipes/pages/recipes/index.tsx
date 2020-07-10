@@ -1,5 +1,6 @@
 import React, { Suspense } from "react"
 import { Head, Link, useQuery, BlitzPage } from "blitz"
+import BaseLayout from "app/layouts/BaseLayout"
 import getRecipes from "app/recipes/queries/getRecipes"
 import Recipes from "app/recipes/components/Recipes"
 
@@ -11,7 +12,7 @@ export const RecipesList = () => {
 
 const RecipesPage: BlitzPage = () => {
   return (
-    <div>
+    <BaseLayout>
       <Head>
         <title>Recipes</title>
         <link rel="icon" href="/favicon.ico" />
@@ -32,7 +33,7 @@ const RecipesPage: BlitzPage = () => {
           <RecipesList />
         </Suspense>
       </main>
-    </div>
+    </BaseLayout>
   )
 }
 

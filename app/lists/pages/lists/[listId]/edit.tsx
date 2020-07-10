@@ -1,5 +1,6 @@
 import React, { Suspense } from "react"
 import { Head, Link, useRouter, useQuery, useParam, BlitzPage } from "blitz"
+import BaseLayout from "app/layouts/BaseLayout"
 import getList from "app/lists/queries/getList"
 import updateList from "app/lists/mutations/updateList"
 import ListForm from "app/lists/components/ListForm"
@@ -39,7 +40,7 @@ export const EditList = () => {
 
 const EditListPage: BlitzPage = () => {
   return (
-    <div>
+    <BaseLayout>
       <Head>
         <title>Edit List</title>
         <link rel="icon" href="/favicon.ico" />
@@ -58,7 +59,7 @@ const EditListPage: BlitzPage = () => {
           }
         </p>
       </main>
-    </div>
+    </BaseLayout>
   )
 }
 

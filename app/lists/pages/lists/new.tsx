@@ -1,5 +1,6 @@
 import React from "react"
 import { Head, Link, useRouter, BlitzPage } from "blitz"
+import BaseLayout from "app/layouts/BaseLayout"
 import createList from "app/lists/mutations/createList"
 import ListForm from "app/lists/components/ListForm"
 
@@ -7,7 +8,7 @@ const NewListPage: BlitzPage = () => {
   const router = useRouter()
 
   return (
-    <div>
+    <BaseLayout>
       <Head>
         <title>New List</title>
         <link rel="icon" href="/favicon.ico" />
@@ -36,7 +37,7 @@ const NewListPage: BlitzPage = () => {
           }
         </p>
       </main>
-    </div>
+    </BaseLayout>
   )
 }
 

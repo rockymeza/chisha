@@ -1,5 +1,6 @@
 import React, { Suspense } from "react"
 import { Head, Link, useRouter, useQuery, useParam, BlitzPage } from "blitz"
+import BaseLayout from "app/layouts/BaseLayout"
 import getList from "app/lists/queries/getList"
 import deleteList from "app/lists/mutations/deleteList"
 import Recipes from "app/recipes/components/Recipes"
@@ -39,7 +40,7 @@ export const List = () => {
 
 const ShowListPage: BlitzPage = () => {
   return (
-    <div>
+    <BaseLayout>
       <Head>
         <title>List</title>
         <link rel="icon" href="/favicon.ico" />
@@ -58,7 +59,7 @@ const ShowListPage: BlitzPage = () => {
           <List />
         </Suspense>
       </main>
-    </div>
+    </BaseLayout>
   )
 }
 

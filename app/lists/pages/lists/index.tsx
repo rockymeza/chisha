@@ -1,5 +1,6 @@
 import React, { Suspense } from "react"
 import { Head, Link, useQuery, BlitzPage } from "blitz"
+import BaseLayout from "app/layouts/BaseLayout"
 import getLists from "app/lists/queries/getLists"
 import Lists from "app/lists/components/Lists"
 
@@ -11,7 +12,7 @@ export const ListsList = () => {
 
 const ListsPage: BlitzPage = () => {
   return (
-    <div>
+    <BaseLayout>
       <Head>
         <title>Lists</title>
         <link rel="icon" href="/favicon.ico" />
@@ -32,7 +33,7 @@ const ListsPage: BlitzPage = () => {
           <ListsList />
         </Suspense>
       </main>
-    </div>
+    </BaseLayout>
   )
 }
 
